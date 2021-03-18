@@ -4,9 +4,9 @@ import pandas as pd
 from datetime import datetime
 import time
 
-from ga_ep import ga_ep
-from preprocess_data import preprocess_data
-from read_data import read_data
+from ga_ep.preprocess_data import preprocess_data
+from ga_ep.read_data import read_data
+from ga_ep.ga_ep import ga_ep
 
 from path import LOGS_PATH, path
 

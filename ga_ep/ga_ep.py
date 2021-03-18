@@ -3,7 +3,8 @@ from datetime import datetime
 
 import numpy as np
 
-from coverage_check import detailed_coverage_check, fast_coverage_check
+from ga_ep.coverage_check import detailed_coverage_check, fast_coverage_check
+
 from path import LOGS_PATH
 
 
