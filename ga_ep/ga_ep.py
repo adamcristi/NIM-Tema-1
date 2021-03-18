@@ -1,3 +1,4 @@
+import concurrent.futures
 import time
 from datetime import datetime
 
@@ -6,6 +7,8 @@ import numpy as np
 from ga_ep.coverage_check import detailed_coverage_check, fast_coverage_check
 
 from path import LOGS_PATH
+
+MAX_WORKERS = 12
 
 
 def get_log_info_str(iteration, population, data_matrix):
@@ -29,6 +32,55 @@ def get_log_info_str(iteration, population, data_matrix):
     return info
 
 
+def execute_threads(array, max_workers, function, *func_args):
+    results = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as th_executor:
+
+        arr_size = len(array)
+
+        workers = 0
+        tasks = []
+
+        still_running = True
+        element_index = 0
+
+        while still_running:
+            full_usage = True
+
+            # If is not the end of population
+            if element_index < arr_size:
+
+                if workers < max_workers:
+                    full_usage = False
+                    workers += 1
+
+                    element = array[element_index]
+                    tasks.append(th_executor.submit(function, element, *func_args))
+
+                    element_index += 1
+
+            if full_usage:
+
+                done, not_done = concurrent.futures.wait(tasks, return_when=concurrent.futures.FIRST_COMPLETED)
+
+                # Safety mechanism
+                if len(not_done) == 0 and len(done) == 0:
+                    still_running = False
+
+                else:
+                    for future in done:
+                        # Append the result to evals
+                        results += [future.result()]
+
+                        # Remove from active tasks
+                        tasks.remove(future)
+
+                        # Mark the worker as free
+                        workers -= 1
+
+    return results
+
+
 def eval_chromosome(chromosome, data_matrix, total_used_sum):
     counts, full_coverage = detailed_coverage_check(chromosome, data_matrix)
 
@@ -38,13 +90,19 @@ def eval_chromosome(chromosome, data_matrix, total_used_sum):
 
 
 def eval_population(population, data_matrix, total_used_sum):
-    return [eval_chromosome(chromosome, data_matrix, total_used_sum) for chromosome in population]
+    return execute_threads(population, MAX_WORKERS, eval_chromosome, data_matrix, total_used_sum)
+    # return [eval_chromosome(chromosome, data_matrix, total_used_sum) for chromosome in population]
+
+
+def single_fitness(eval, min_eval, eval_diff, pressure):
+    return (1 + (eval - min_eval) / eval_diff) ** pressure
 
 
 def fitness(evals, pressure=4):
     min_eval, max_eval = min(evals), max(evals)
     eval_diff = max_eval - min_eval
 
+    # return execute_threads(evals, MAX_WORKERS, single_fitness, min_eval, eval_diff, pressure)
     return [(1 + (eval - min_eval) / eval_diff) ** pressure for eval in evals]
 
 
