@@ -161,7 +161,9 @@ def ga_ep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_cho
                          + f"mutation_choosing_prob={mutation_choosing_prob}\n" \
                          + f"mutation_prob={mutation_prob}\n" \
                          + f"crossover_prob={crossover_prob}\n" \
-                         + f"pressure={pressure}"
+                         + f"pressure={pressure}\n" \
+                         + f"eval_chromosome={eval_chromosome.__name__}\n" \
+                         + f"crossover={crossover.__name__}"
             file.write(parameters)
 
     start = time.time_ns()
