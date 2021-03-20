@@ -83,14 +83,11 @@ def execute_threads(array, max_workers, function, *func_args):
 
 def eval_chromosome(chromosome, data_matrix):
 
-    counts, full_coverage = detailed_coverage_check(chromosome, data_matrix)
+    full_coverage = fast_coverage_check(chromosome, data_matrix)
 
-    if not full_coverage:
-        return np.count_nonzero(counts) / data_matrix.shape[0]
+    ratio = np.count_nonzero(chromosome) / data_matrix.shape[1]
 
-    else:
-        ratio_used = np.count_nonzero(chromosome) / data_matrix.shape[1]
-        return 2 - ratio_used
+    return 1 - ratio if full_coverage else ratio
 
 
 def eval_population(population, data_matrix):
@@ -160,7 +157,7 @@ def crossover(population, crossover_prob):
         population[first, :cut], population[second, :cut] = population[second, :cut], tmp
 
 
-def ga_ep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_choosing_prob, crossover_prob, pressure,
+def ga_ep_2(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_choosing_prob, crossover_prob, pressure,
           data_matrix, total_used_sum, population=None, title="", logging=True):
     """
       Genetic algorithm with evaluation penalty to satisfy the constraint.

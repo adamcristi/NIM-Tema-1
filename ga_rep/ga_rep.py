@@ -83,14 +83,7 @@ def execute_threads(array, max_workers, function, *func_args):
 
 def eval_chromosome(chromosome, data_matrix):
 
-    counts, full_coverage = detailed_coverage_check(chromosome, data_matrix)
-
-    if not full_coverage:
-        return np.count_nonzero(counts) / data_matrix.shape[0]
-
-    else:
-        ratio_used = np.count_nonzero(chromosome) / data_matrix.shape[1]
-        return 2 - ratio_used
+    return 1 - (np.count_nonzero(chromosome) / data_matrix.shape[1])
 
 
 def eval_population(population, data_matrix):
@@ -98,8 +91,8 @@ def eval_population(population, data_matrix):
     # return [eval_chromosome(chromosome, data_matrix, total_used_sum) for chromosome in population]
 
 
-# def single_fitness(eval, min_eval, eval_diff, pressure):
-#     return (1 + (eval - min_eval) / eval_diff) ** pressure
+def single_fitness(eval, min_eval, eval_diff, pressure):
+    return (1 + (eval - min_eval) / eval_diff) ** pressure
 
 
 def fitness(evals, pressure=4):
@@ -160,7 +153,53 @@ def crossover(population, crossover_prob):
         population[first, :cut], population[second, :cut] = population[second, :cut], tmp
 
 
-def ga_ep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_choosing_prob, crossover_prob, pressure,
+def repair_chromosome(chromosome, data_matrix):
+    counts, full_coverage = detailed_coverage_check(chromosome, data_matrix)
+
+    if not full_coverage:
+        # Get the samples not covered
+        zero_indecies = np.where(counts == 0)[0]
+
+        repairing_candidates = []
+
+        # Choose at random a candidate from each sample not covered
+        for index in zero_indecies:
+            ones_indecies = np.where(data_matrix[index] == 1)[0]
+            random_index = np.random.randint(0, len(ones_indecies))
+            repairing_candidates += [ones_indecies[random_index]]
+
+        # Add the selected candidates to the chromosome
+        repairing_candidates = np.unique(repairing_candidates)
+        chromosome[:, repairing_candidates] = 1
+
+    return chromosome
+
+
+def repairing_procedure(population, data_matrix):
+
+    repaired_population = execute_threads(population, MAX_WORKERS, repair_chromosome, data_matrix)
+    return np.array(repaired_population)
+
+    # for chr_index in range(population.shape[0]):
+    #     counts, full_coverage = detailed_coverage_check(population[chr_index], data_matrix)
+    #
+    #     # Get the samples not covered
+    #     zero_indecies = np.where(counts == 0)[0]
+    #
+    #     repairing_candidates = []
+    #
+    #     # Choose at random a candidate from each sample not covered
+    #     for index in zero_indecies:
+    #         ones_indecies = np.where(data_matrix[index] == 1)[0]
+    #         random_index = np.random.randint(0, len(ones_indecies))
+    #         repairing_candidates += [ones_indecies[random_index]]
+    #
+    #     # Add the selected candidates to the chromosome
+    #     repairing_candidates = np.unique(repairing_candidates)
+    #     population[chr_index, repairing_candidates] = 1
+
+
+def ga_rep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_choosing_prob, crossover_prob, pressure,
           data_matrix, total_used_sum, population=None, title="", logging=True):
     """
       Genetic algorithm with evaluation penalty to satisfy the constraint.
@@ -213,8 +252,10 @@ def ga_ep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_cho
         # CROSSOVER
         crossover(population, crossover_prob)
 
-        end = time.time_ns()
+        # REPAIR PROCEDURE
+        population = repairing_procedure(population, data_matrix)
 
+        end = time.time_ns()
         print(f"Iteration {iteration} - Elapsed time: {(end - start) / 1e9} seconds.")
 
         if logging:

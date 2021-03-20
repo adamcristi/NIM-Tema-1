@@ -81,25 +81,21 @@ def execute_threads(array, max_workers, function, *func_args):
     return results
 
 
-def eval_chromosome(chromosome, data_matrix):
-
+def eval_chromosome(chromosome, data_matrix, total_used_sum):
     counts, full_coverage = detailed_coverage_check(chromosome, data_matrix)
 
-    if not full_coverage:
-        return np.count_nonzero(counts) / data_matrix.shape[0]
+    ratio = np.sum(counts) / total_used_sum
 
-    else:
-        ratio_used = np.count_nonzero(chromosome) / data_matrix.shape[1]
-        return 2 - ratio_used
+    return 1 - ratio if full_coverage else ratio
 
 
-def eval_population(population, data_matrix):
-    return execute_threads(population, MAX_WORKERS, eval_chromosome, data_matrix)
+def eval_population(population, data_matrix, total_used_sum):
+    return execute_threads(population, MAX_WORKERS, eval_chromosome, data_matrix, total_used_sum)
     # return [eval_chromosome(chromosome, data_matrix, total_used_sum) for chromosome in population]
 
 
-# def single_fitness(eval, min_eval, eval_diff, pressure):
-#     return (1 + (eval - min_eval) / eval_diff) ** pressure
+def single_fitness(eval, min_eval, eval_diff, pressure):
+    return (1 + (eval - min_eval) / eval_diff) ** pressure
 
 
 def fitness(evals, pressure=4):
@@ -160,7 +156,7 @@ def crossover(population, crossover_prob):
         population[first, :cut], population[second, :cut] = population[second, :cut], tmp
 
 
-def ga_ep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_choosing_prob, crossover_prob, pressure,
+def ga_ep_3(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_choosing_prob, crossover_prob, pressure,
           data_matrix, total_used_sum, population=None, title="", logging=True):
     """
       Genetic algorithm with evaluation penalty to satisfy the constraint.
@@ -199,7 +195,7 @@ def ga_ep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_cho
 
     for iteration in range(max_iterations):
         # Evaluate the population
-        evals = eval_population(population, data_matrix)
+        evals = eval_population(population, data_matrix, total_used_sum)
 
         # Compute FITNESS values
         fitness_values = fitness(evals, pressure=pressure)
@@ -214,7 +210,6 @@ def ga_ep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_cho
         crossover(population, crossover_prob)
 
         end = time.time_ns()
-
         print(f"Iteration {iteration} - Elapsed time: {(end - start) / 1e9} seconds.")
 
         if logging:
