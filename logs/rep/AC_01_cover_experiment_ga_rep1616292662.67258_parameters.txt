@@ -1,0 +1,10 @@
+AC_01_cover_experiment_ga_rep1616292662.67258
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=6
+eval_chromosome=eval_chromosome_rep_1
+crossover=double_cut_crossover
