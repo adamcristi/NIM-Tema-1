@@ -31,9 +31,22 @@ def filter_data(value):
         return True
 
 
-def create_plot(type_eval_chromosome):
+def create_plot():
     min_vals = []
     are_mins_covered = []
+
+    with open(os.path.join(LOGS_PATH, log_name[:-4] + "_parameters.txt"), "r") as fd:
+        log_parameters = fd.read(2048)
+
+    type_eval_chromosome = ''
+    if 'eval_chromosome_ep_1' in log_parameters:
+        type_eval_chromosome = "First Evaluation Function"
+    elif 'eval_chromosome_ep_2' in log_parameters:
+        type_eval_chromosome = "Second Evaluation Function"
+    elif 'eval_chromosome_ep_4' in log_parameters:
+        type_eval_chromosome = "Third Evaluation Function"
+    elif 'eval_chromosome_rep_1' in log_parameters:
+        type_eval_chromosome = "Reparation Evaluation Function"
 
     with open(os.path.join(LOGS_PATH, log_name), "r") as fd:
         current_generation = fd.readline().strip()
@@ -77,6 +90,4 @@ def create_plot(type_eval_chromosome):
 
 
 # Create plot for min_val at every generation in specified log file
-create_plot(type_eval_chromosome="First Evaluation Function")
-#create_plot(type_eval_chromosome="Second Evaluation Function")
-#create_plot(type_eval_chromosome="Third Evaluation Function")
+create_plot()
