@@ -195,7 +195,7 @@ def ga_rep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_ch
     else:
         population = population.copy()
 
-    experiment_name = title + "_experiment_ga_ep" + str(datetime.timestamp(datetime.now())) + ".txt"
+    experiment_name = title + "_experiment_ga_rep" + str(datetime.timestamp(datetime.now())) + ".txt"
 
     if logging:
         with open(LOGS_PATH + experiment_name[:-4] + "_parameters.txt", "w") as file:
@@ -206,7 +206,7 @@ def ga_rep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_ch
                          + f"mutation_choosing_prob={mutation_choosing_prob}\n" \
                          + f"mutation_prob={mutation_prob}\n" \
                          + f"crossover_prob={crossover_prob}\n" \
-                         + f"pressure={pressure}" \
+                         + f"pressure={pressure}\n" \
                          + f"eval_chromosome={eval_chromosome.__name__}\n" \
                          + f"crossover={crossover.__name__}"
             file.write(parameters)
