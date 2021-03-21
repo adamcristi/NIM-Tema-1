@@ -5,9 +5,42 @@ from datetime import datetime
 
 import numpy as np
 
-from ga_ep.ga_ep_algorithm import get_log_info_str, eval_population, fitness, selection_wheel_of_fortune, mutation
+from ga_ep.ga_ep_algorithm import execute_threads, fitness, selection_wheel_of_fortune, mutation
+
+from utils.coverage_check import fast_coverage_check
 
 from path import LOGS_PATH
+
+MAX_WORKERS = 8
+
+
+def get_log_info_str(iteration, population, data_matrix):
+    number_candidates_chromosomes = [np.count_nonzero(chromosome) for chromosome in population]
+
+    covered_count = np.count_nonzero([fast_coverage_check(chromosome, data_matrix) for chromosome in population])
+
+    masked_number_candidates_chromosomes = np.ma.masked_array(number_candidates_chromosomes,
+                                                              mask=number_candidates_chromosomes == 0)
+    index_minimum_number_candidates_chromosome = np.where(number_candidates_chromosomes ==
+                                                          np.min(masked_number_candidates_chromosomes))[0][0]
+    is_min_covered = fast_coverage_check(population[index_minimum_number_candidates_chromosome], data_matrix)
+
+    delim = " ;" + " " * 4
+
+    info = f"{iteration}: "
+    info += f"covered ={covered_count:4}{delim}"
+    info += f"is_min_covered ={is_min_covered:5}{delim}"
+    info += f"min_val ={np.min(masked_number_candidates_chromosomes):6}{delim}"
+    info += f"max_val ={np.max(masked_number_candidates_chromosomes):6}{delim}"
+    info += f"mean_val ={np.mean(masked_number_candidates_chromosomes):10.2f}{delim}"
+    info += f"std_val ={np.std(masked_number_candidates_chromosomes):6.2f}"
+
+    return info
+
+
+def eval_population(population, data_matrix, eval_chromosome):
+    return execute_threads(population, MAX_WORKERS, eval_chromosome, data_matrix)
+    # return [eval_chromosome(chromosome, data_matrix, total_used_sum) for chromosome in population]
 
 
 def ga_ep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_choosing_prob, crossover_prob, pressure,

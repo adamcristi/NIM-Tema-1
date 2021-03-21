@@ -26,6 +26,7 @@ data_matrix = preprocess_data(data, n_samples, n_candidates)
 
 pop_size = 100
 
+
 # Genetic Algorithm Hybridized -> Hill Climbing / Simulated Annealing used to get a better initial population than a random one
 def execute_ga_hybridized(**kwargs):
     if "pop_size" not in kwargs.keys():
@@ -50,18 +51,18 @@ def execute_ga_hybridized(**kwargs):
 
 
     # Load data Hill Climber because the algorithm takes too much time (for AC_01_cover ~ 1 hour and way more for the others)
-    population = np.load(os.path.abspath(os.getcwd()) + '/hill_climbing/data_hill_climber/{}_{}_Instance_Best_Size_{}.npy'.
-                         format(name.split('_')[0],
-                                name.split('_')[1],
-                                str(pop_size)))
-    hybridization_type = "hill_climbing"
-
-    # Load data Simulated Annealer because the algorithm takes too much time (for AC_01_cover ~ 1 hour and way more for the others)
-    #population = np.load(os.path.abspath(os.getcwd()) + '/simulated_annealing/data_simulated_annealer/{}_{}_Instance_Size_{}.npy'.
+    #population = np.load(os.path.abspath(os.getcwd()) + '/hill_climbing/data_hill_climber/{}_{}_Instance_Best_Size_{}.npy'.
     #                     format(name.split('_')[0],
     #                            name.split('_')[1],
     #                            str(pop_size)))
-    #hybridization_type = "simulated_annealing"
+    #hybridization_type = "hill_climbing"
+
+    # Load data Simulated Annealer because the algorithm takes too much time (for AC_01_cover ~ 1 hour and way more for the others)
+    population = np.load(os.path.abspath(os.getcwd()) + '/simulated_annealing/data_simulated_annealer/{}_{}_Instance_Size_{}.npy'.
+                         format(name.split('_')[0],
+                                name.split('_')[1],
+                                str(pop_size)))
+    hybridization_type = "simulated_annealing"
 
     last_population = ga_ep(pop_size=pop_size,
                             chromosome_size=n_candidates,
@@ -91,31 +92,31 @@ def execute_ga_hybridized(**kwargs):
 
 # pressure - 6, 8 ;  eval_chromosome_ep_1
 
-execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_1,
-                      crossover=double_cut_crossover,
-                      max_iterations=1000,
-                      mutation_prob=0.01,
-                      mutation_choosing_prob=0.1,
-                      crossover_prob=0.3,
-                      pressure=6)
-
-execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_1,
-                      crossover=double_cut_crossover,
-                      max_iterations=1000,
-                      mutation_prob=0.01,
-                      mutation_choosing_prob=0.1,
-                      crossover_prob=0.3,
-                      pressure=8)
+#execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_1,
+#                      crossover=double_cut_crossover,
+#                      max_iterations=1000,
+#                      mutation_prob=0.01,
+#                      mutation_choosing_prob=0.1,
+#                      crossover_prob=0.3,
+#                      pressure=6)
+#
+#execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_1,
+#                      crossover=double_cut_crossover,
+#                      max_iterations=1000,
+#                      mutation_prob=0.01,
+#                      mutation_choosing_prob=0.1,
+#                      crossover_prob=0.3,
+#                      pressure=8)
 
 # pressure - 6, 8 ;  eval_chromosome_ep_2
 
-execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_2,
-                      crossover=double_cut_crossover,
-                      max_iterations=1000,
-                      mutation_prob=0.01,
-                      mutation_choosing_prob=0.1,
-                      crossover_prob=0.3,
-                      pressure=6)
+#execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_2,
+#                      crossover=double_cut_crossover,
+#                      max_iterations=2000,
+#                      mutation_prob=0.01,
+#                      mutation_choosing_prob=0.1,
+#                      crossover_prob=0.3,
+#                      pressure=6)
 
 execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_2,
                       crossover=double_cut_crossover,
@@ -127,21 +128,21 @@ execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_2,
 
 # pressure - 6, 8 ;  eval_chromosome_ep_4
 
-execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_4,
-                      crossover=double_cut_crossover,
-                      max_iterations=1000,
-                      mutation_prob=0.01,
-                      mutation_choosing_prob=0.1,
-                      crossover_prob=0.3,
-                      pressure=6)
-
-execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_4,
-                      crossover=double_cut_crossover,
-                      max_iterations=1000,
-                      mutation_prob=0.01,
-                      mutation_choosing_prob=0.1,
-                      crossover_prob=0.3,
-                      pressure=8)
+#execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_4,
+#                      crossover=double_cut_crossover,
+#                      max_iterations=2000,
+#                      mutation_prob=0.01,
+#                      mutation_choosing_prob=0.1,
+#                      crossover_prob=0.3,
+#                      pressure=6)
+#
+#execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_4,
+#                      crossover=double_cut_crossover,
+#                      max_iterations=1000,
+#                      mutation_prob=0.01,
+#                      mutation_choosing_prob=0.1,
+#                      crossover_prob=0.3,
+#                      pressure=8)
 
 
 
