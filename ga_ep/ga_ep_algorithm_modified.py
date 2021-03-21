@@ -31,7 +31,11 @@ def ga_ep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_cho
         experiment_name = title + "_experiment_ga_ep_" + str(datetime.timestamp(datetime.now())) + ".txt"
         population = np.random.randint(0, 2, (pop_size, chromosome_size))
     else:
-        experiment_name = title + "_experiment_ga_ep_hybridized_" + str(datetime.timestamp(datetime.now())) + ".txt"
+        if hybridization_type is not None:
+            experiment_name = title + f"_experiment_ga_ep_hybridized_{hybridization_type}_" + \
+                              str(datetime.timestamp(datetime.now())) + ".txt"
+        else:
+            experiment_name = title + "_experiment_ga_ep_" + str(datetime.timestamp(datetime.now())) + ".txt"
         population = population.copy()
 
     if logging:

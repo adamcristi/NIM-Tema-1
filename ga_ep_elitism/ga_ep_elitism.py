@@ -46,8 +46,14 @@ def ga_ep_elitism(pop_size, chromosome_size, max_iterations, mutation_prob, muta
         experiment_name = title + "_experiment_ga_ep_elitism_" + str(datetime.timestamp(datetime.now())) + ".txt"
         population = np.random.randint(0, 2, (pop_size, chromosome_size))
     else:
-        experiment_name = title + "_experiment_ga_ep_hybridized_elitism_" + str(datetime.timestamp(datetime.now())) + ".txt"
+        if hybridization_type is not None:
+            experiment_name = title + f"_experiment_ga_ep_hybridized_{hybridization_type}_elitism_" + \
+                              str(datetime.timestamp(datetime.now())) + ".txt"
+        else:
+            experiment_name = title + "_experiment_ga_ep_elitism_" + \
+                              str(datetime.timestamp(datetime.now())) + ".txt"
         population = population.copy()
+
 
     number_chromoses_kept_by_elitism = int(percentage_elitism * pop_size)
 

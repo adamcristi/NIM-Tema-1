@@ -14,6 +14,7 @@ from ga_ep_elitism.ga_ep_elitism import ga_ep_elitism
 from ga_ep.ga_ep_1 import eval_chromosome_ep_1
 from ga_ep.ga_ep_2 import eval_chromosome_ep_2
 from ga_ep.ga_ep_3 import eval_chromosome_ep_3
+from ga_ep.ga_ep_4 import eval_chromosome_ep_4
 from operators.crossover.single_cut import single_cut_crossover
 from operators.crossover.double_cut import double_cut_crossover
 
@@ -46,18 +47,18 @@ else:
 
 
 # Load data Hill Climber because the algorithm takes too much time (for AC_01_cover ~ 1 hour and way more for the others)
-population = np.load(os.path.abspath(os.getcwd()) + '/hill_climbing/data_hill_climber/{}_{}_Instance_Best_Size_{}.npy'.
-                     format(name.split('_')[0],
-                            name.split('_')[1],
-                            str(pop_size)))
-hybridization_type = "hill_climbing"
-
-# Load data Simulated Annealer because the algorithm takes too much time (for AC_01_cover ~ 1 hour and way more for the others)
-#population = np.load(os.path.abspath(os.getcwd()) + '/simulated_annealing/data_simulated_annealer/{}_{}_Instance_Size_{}.npy'.
+#population = np.load(os.path.abspath(os.getcwd()) + '/hill_climbing/data_hill_climber/{}_{}_Instance_Best_Size_{}.npy'.
 #                     format(name.split('_')[0],
 #                            name.split('_')[1],
 #                            str(pop_size)))
-#hybridization_type = "simulated_annealing"
+#hybridization_type = "hill_climbing"
+
+# Load data Simulated Annealer because the algorithm takes too much time (for AC_01_cover ~ 1 hour and way more for the others)
+population = np.load(os.path.abspath(os.getcwd()) + '/simulated_annealing/data_simulated_annealer/{}_{}_Instance_Size_{}.npy'.
+                     format(name.split('_')[0],
+                            name.split('_')[1],
+                            str(pop_size)))
+hybridization_type = "simulated_annealing"
 
 last_population = ga_ep_elitism(pop_size=pop_size,
                                 chromosome_size=n_candidates,
@@ -67,7 +68,7 @@ last_population = ga_ep_elitism(pop_size=pop_size,
                                 crossover_prob=0.3,
                                 pressure=6,
                                 data_matrix=data_matrix,
-                                eval_chromosome=eval_chromosome_ep_1,
+                                eval_chromosome=eval_chromosome_ep_4,
                                 crossover=double_cut_crossover,
                                 population=population,
                                 percentage_elitism=0.05,

@@ -57,4 +57,6 @@ def find_minimium_of_specified_alg_type_logs(type_alg):
 print(find_minimium_of_specified_alg_type_logs(type_alg='ga_ep'))
 print(find_minimium_of_specified_alg_type_logs(type_alg='ga_ep_elitism'))
 print(find_minimium_of_specified_alg_type_logs(type_alg='ga_ep_hybridized'))
-print(find_minimium_of_specified_alg_type_logs(type_alg='ga_ep_hybridized_elitism'))
+#print(find_minimium_of_specified_alg_type_logs(type_alg='ga_ep_hybridized_elitism'))
+print(find_minimium_of_specified_alg_type_logs(type_alg='ga_ep_hybridized_simulated_annealing_elitism'))
+print(find_minimium_of_specified_alg_type_logs(type_alg='ga_ep_hybridized_hill_climbing_elitism'))
