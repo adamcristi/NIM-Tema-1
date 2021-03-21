@@ -1,0 +1,11 @@
+AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_1616334641.114651
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=6
+eval_chromosome=eval_chromosome_ep_1
+crossover=single_cut_crossover
+hybridization_type=simulated_annealing
