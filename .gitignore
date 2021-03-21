@@ -130,6 +130,7 @@ dmypy.json
 /path.py
 /test.py
 /personal_main.py
+/.idea
 /.idea/csv-plugin.xml
 /.idea/misc.xml
 /.idea/modules.xml

@@ -1,0 +1,11 @@
+AC_01_cover_experiment_ga_ep_elitism_1616327574.10646
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=1
+eval_chromosome=eval_chromosome_ep_4
+crossover=double_cut_crossover
+percentage_elitism=0.05
