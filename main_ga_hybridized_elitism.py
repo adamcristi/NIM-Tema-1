@@ -88,6 +88,8 @@ def execute_ga_hybridized_elitism(**kwargs):
         end = time.time()
         print(f"Total time: {(end - start)} seconds.")
 
+    print()
+
 # DOUBLE CUT CROSSOVER
 
 # pressure - 6, 8 ;  eval_chromosome_ep_1
