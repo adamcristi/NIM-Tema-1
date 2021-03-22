@@ -1,8 +1,18 @@
 import os
 import numpy as np
 
+logs_folder = "ep"
+#logs_folder = "rep"
+#logs_folder = "elitism"
+#logs_folder = "hybridized_hill_climbing"
+#logs_folder = "hybridized_simulated_annealing"
+#logs_folder = "hybridized_hill_climbing_elitism"
+#logs_folder = "hybridized_simulated_annealing_elitism"
+
+pop_size = 100
+
 # LOGS_PATH is a must to be the absolute path to the logs
-from path import LOGS_PATH
+LOGS_PATH = os.path.join(os.path.split(os.path.abspath(os.getcwd()))[0], 'logs', logs_folder)
 
 
 def filter_data(value):
@@ -32,10 +42,11 @@ def find_n_minimums_of_all_logs(n):
                             data_current_generation[-1] = data_current_generation[-1].replace('=', '')
 
                         current_index_generation = int(data_current_generation[0])
+                        current_covered = int(data_current_generation[data_current_generation.index('covered') + 1])
                         current_is_min_covered = int(data_current_generation[data_current_generation.index('is_min_covered') + 1])
                         current_min_val = int(data_current_generation[data_current_generation.index('min_val') + 1])
 
-                        if current_is_min_covered == 1:
+                        if current_is_min_covered == 1 and current_covered == pop_size:
                             if len(global_n_mins) < n:
                                 global_n_mins.append((current_min_val, current_index_generation, log_name))
                                 global_n_mins = sorted(global_n_mins, key=lambda pair: pair[0])

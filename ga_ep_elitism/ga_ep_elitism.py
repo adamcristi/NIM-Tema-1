@@ -6,7 +6,8 @@ from datetime import datetime
 import numpy as np
 
 from utils.coverage_check import detailed_coverage_check
-from ga_ep.ga_ep_algorithm import get_log_info_str, eval_population, fitness, selection_wheel_of_fortune, mutation, execute_threads, MAX_WORKERS
+from ga_ep.ga_ep_algorithm import fitness, selection_wheel_of_fortune, mutation
+from ga_ep.ga_ep_algorithm_modified import get_log_info_str, eval_population
 
 from path import LOGS_PATH
 
