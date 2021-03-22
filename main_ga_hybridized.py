@@ -92,31 +92,31 @@ def execute_ga_hybridized(**kwargs):
 
 # pressure - 6, 8 ;  eval_chromosome_ep_1
 
-#execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_1,
-#                      crossover=double_cut_crossover,
-#                      max_iterations=1000,
-#                      mutation_prob=0.01,
-#                      mutation_choosing_prob=0.1,
-#                      crossover_prob=0.3,
-#                      pressure=6)
-#
-#execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_1,
-#                      crossover=double_cut_crossover,
-#                      max_iterations=1000,
-#                      mutation_prob=0.01,
-#                      mutation_choosing_prob=0.1,
-#                      crossover_prob=0.3,
-#                      pressure=8)
+execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_1,
+                      crossover=double_cut_crossover,
+                      max_iterations=1000,
+                      mutation_prob=0.01,
+                      mutation_choosing_prob=0.1,
+                      crossover_prob=0.3,
+                      pressure=6)
+
+execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_1,
+                      crossover=double_cut_crossover,
+                      max_iterations=1000,
+                      mutation_prob=0.01,
+                      mutation_choosing_prob=0.1,
+                      crossover_prob=0.3,
+                      pressure=8)
 
 # pressure - 6, 8 ;  eval_chromosome_ep_2
 
-#execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_2,
-#                      crossover=double_cut_crossover,
-#                      max_iterations=2000,
-#                      mutation_prob=0.01,
-#                      mutation_choosing_prob=0.1,
-#                      crossover_prob=0.3,
-#                      pressure=6)
+execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_2,
+                      crossover=double_cut_crossover,
+                      max_iterations=1000,
+                      mutation_prob=0.01,
+                      mutation_choosing_prob=0.1,
+                      crossover_prob=0.3,
+                      pressure=6)
 
 execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_2,
                       crossover=double_cut_crossover,
@@ -128,21 +128,21 @@ execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_2,
 
 # pressure - 6, 8 ;  eval_chromosome_ep_4
 
-#execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_4,
-#                      crossover=double_cut_crossover,
-#                      max_iterations=2000,
-#                      mutation_prob=0.01,
-#                      mutation_choosing_prob=0.1,
-#                      crossover_prob=0.3,
-#                      pressure=6)
-#
-#execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_4,
-#                      crossover=double_cut_crossover,
-#                      max_iterations=1000,
-#                      mutation_prob=0.01,
-#                      mutation_choosing_prob=0.1,
-#                      crossover_prob=0.3,
-#                      pressure=8)
+execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_4,
+                      crossover=double_cut_crossover,
+                      max_iterations=1000,
+                      mutation_prob=0.01,
+                      mutation_choosing_prob=0.1,
+                      crossover_prob=0.3,
+                      pressure=6)
+
+execute_ga_hybridized(eval_chromosome=eval_chromosome_ep_4,
+                      crossover=double_cut_crossover,
+                      max_iterations=1000,
+                      mutation_prob=0.01,
+                      mutation_choosing_prob=0.1,
+                      crossover_prob=0.3,
+                      pressure=8)
 
 
 
