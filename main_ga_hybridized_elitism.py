@@ -76,7 +76,7 @@ def execute_ga_hybridized_elitism(**kwargs):
                                     eval_chromosome=kwargs["eval_chromosome"],
                                     crossover=kwargs["crossover"],
                                     population=population,
-                                    percentage_elitism=kwargs["percentage_elitism="],
+                                    percentage_elitism=kwargs["percentage_elitism"],
                                     hybridization_type=hybridization_type,
                                     title=name[:-4],
                                     logging=True)

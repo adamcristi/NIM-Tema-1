@@ -1,0 +1,11 @@
+AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_1616395099.907444
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=6
+eval_chromosome=eval_chromosome_ep_4
+crossover=double_cut_crossover
+hybridization_type=hill_climbing
