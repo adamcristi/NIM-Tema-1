@@ -52,18 +52,18 @@ def execute_ga_hybridized_elitism(**kwargs):
 
 
     # Load data Hill Climber because the algorithm takes too much time (for AC_01_cover ~ 1 hour and way more for the others)
-    population = np.load(os.path.abspath(os.getcwd()) + '/hill_climbing/data_hill_climber/{}_{}_Instance_Best_Size_{}.npy'.
-                         format(name.split('_')[0],
-                                name.split('_')[1],
-                                str(pop_size)))
-    hybridization_type = "hill_climbing"
-
-    # Load data Simulated Annealer because the algorithm takes too much time (for AC_01_cover ~ 1 hour and way more for the others)
-    #population = np.load(os.path.abspath(os.getcwd()) + '/simulated_annealing/data_simulated_annealer/{}_{}_Instance_Size_{}.npy'.
+    #population = np.load(os.path.abspath(os.getcwd()) + '/hill_climbing/data_hill_climber/{}_{}_Instance_Best_Size_{}.npy'.
     #                     format(name.split('_')[0],
     #                            name.split('_')[1],
     #                            str(pop_size)))
-    #hybridization_type = "simulated_annealing"
+    #hybridization_type = "hill_climbing"
+
+    # Load data Simulated Annealer because the algorithm takes too much time (for AC_01_cover ~ 1 hour and way more for the others)
+    population = np.load(os.path.abspath(os.getcwd()) + '/simulated_annealing/data_simulated_annealer/{}_{}_Instance_Size_{}.npy'.
+                         format(name.split('_')[0],
+                                name.split('_')[1],
+                                str(pop_size)))
+    hybridization_type = "simulated_annealing"
 
     last_population = ga_ep_elitism(pop_size=pop_size,
                                     chromosome_size=n_candidates,
