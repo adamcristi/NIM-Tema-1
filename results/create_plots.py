@@ -12,8 +12,8 @@ import matplotlib.pyplot as plt
 #logs_folder = "ep"
 #logs_folder = "rep"
 #logs_folder = "elitism"
-#logs_folder = "hybridized_hill_climbing"
-logs_folder = "hybridized_simulated_annealing"
+logs_folder = "hybridized_hill_climbing"
+#logs_folder = "hybridized_simulated_annealing"
 #logs_folder = "hybridized_hill_climbing_elitism"
 #logs_folder = "hybridized_simulated_annealing_elitism"
 
@@ -21,10 +21,10 @@ logs_folder = "hybridized_simulated_annealing"
 #log_name = "AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_elitism_1616407916.802027.txt"
 
 # eval_chromosome_2
-log_name = "AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_1616398831.666533.txt"
+#log_name = "AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_1616398831.666533.txt"
 
 # eval_chromosome_4
-#log_name = "AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_1616395848.842849.txt"
+log_name = "AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_1616395848.842849.txt"
 
 # test
 #log_name = 'AC_01_cover_experiment_ga_ep1616333482.801356.txt'
@@ -89,7 +89,7 @@ def create_plot():
     figure = plt.figure(figsize=(6.1, 6.1))
     sns.set_style("darkgrid")
     #sns.scatterplot(x=np.arange(len(min_vals))[::10], y=min_vals[::10], hue=df.loc[::10, "All Samples Covered"], s=150)
-    sns.lineplot(x=np.arange(len(min_vals))[::5], y=min_vals[::5], hue=df.loc[::5, "All Samples Covered"])
+    sns.lineplot(x=np.arange(len(min_vals))[::5], y=min_vals[::5], color='orange') #, hue=df.loc[::5, "All Samples Covered"])
     plt.xlabel("Iterations", fontsize=12)
     plt.ylabel("Best Chromosome Minimum Candidates", fontsize=12)
     plt.tick_params(labelsize=11)
