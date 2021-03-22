@@ -1,10 +1,10 @@
 import os
 import numpy as np
 
-logs_folder = "ep"
+#logs_folder = "ep"
 #logs_folder = "rep"
 #logs_folder = "elitism"
-#logs_folder = "hybridized_hill_climbing"
+logs_folder = "hybridized_hill_climbing"
 #logs_folder = "hybridized_simulated_annealing"
 #logs_folder = "hybridized_hill_climbing_elitism"
 #logs_folder = "hybridized_simulated_annealing_elitism"
