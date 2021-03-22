@@ -30,7 +30,7 @@ def execute_ga(ga_function, **kwargs):
 
     population = np.random.randint(0, 2, (kwargs["pop_size"], n_candidates))
 
-    #start = time.time_ns()
+    start = time.time_ns()
     last_population = ga_function(pop_size=kwargs["pop_size"],
                                   chromosome_size=n_candidates,
                                   max_iterations=kwargs["max_iterations"],
@@ -45,8 +45,8 @@ def execute_ga(ga_function, **kwargs):
                                   title=name[:-4],
                                   logging=True)
 
-    #end = time.time_ns()
-    #print(f"Total time: {(end - start) / 1e9} seconds.")
+    end = time.time_ns()
+    print(f"Total time: {(end - start) / 1e9} seconds.")
 
 
 # #
@@ -239,14 +239,14 @@ def execute_ga(ga_function, **kwargs):
 #            crossover_prob=0.3,
 #            pressure=4)
 #
-execute_ga(ga_function=ga_rep,
-           eval_chromosome=eval_chromosome_rep_1,
-           crossover=double_cut_crossover,
-           max_iterations=1000,
-           mutation_prob=0.01,
-           mutation_choosing_prob=0.1,
-           crossover_prob=0.3,
-           pressure=6)
+# execute_ga(ga_function=ga_rep,
+#            eval_chromosome=eval_chromosome_rep_1,
+#            crossover=double_cut_crossover,
+#            max_iterations=1000,
+#            mutation_prob=0.01,
+#            mutation_choosing_prob=0.1,
+#            crossover_prob=0.3,
+#            pressure=6)
 #
 # # Pressure = 8
 #
@@ -295,9 +295,48 @@ execute_ga(ga_function=ga_rep,
 #            crossover_prob=0.3,
 #            pressure=8)
 #
-execute_ga(ga_function=ga_rep,
-           eval_chromosome=eval_chromosome_rep_1,
-           crossover=double_cut_crossover,
+# execute_ga(ga_function=ga_rep,
+#            eval_chromosome=eval_chromosome_rep_1,
+#            crossover=double_cut_crossover,
+#            max_iterations=1000,
+#            mutation_prob=0.01,
+#            mutation_choosing_prob=0.1,
+#            crossover_prob=0.3,
+#            pressure=8)
+
+
+# Single Crossover - ep 4
+
+execute_ga(ga_function=ga_ep,
+           eval_chromosome=eval_chromosome_ep_4,
+           crossover=single_cut_crossover,
+           max_iterations=1000,
+           mutation_prob=0.01,
+           mutation_choosing_prob=0.1,
+           crossover_prob=0.3,
+           pressure=2)
+
+execute_ga(ga_function=ga_ep,
+           eval_chromosome=eval_chromosome_ep_4,
+           crossover=single_cut_crossover,
+           max_iterations=1000,
+           mutation_prob=0.01,
+           mutation_choosing_prob=0.1,
+           crossover_prob=0.3,
+           pressure=4)
+
+execute_ga(ga_function=ga_ep,
+           eval_chromosome=eval_chromosome_ep_4,
+           crossover=single_cut_crossover,
+           max_iterations=1000,
+           mutation_prob=0.01,
+           mutation_choosing_prob=0.1,
+           crossover_prob=0.3,
+           pressure=6)
+
+execute_ga(ga_function=ga_ep,
+           eval_chromosome=eval_chromosome_ep_4,
+           crossover=single_cut_crossover,
            max_iterations=1000,
            mutation_prob=0.01,
            mutation_choosing_prob=0.1,
@@ -305,79 +344,40 @@ execute_ga(ga_function=ga_rep,
            pressure=8)
 
 
-## Single Crossover - ep 4
-#
-#execute_ga(ga_function=ga_ep,
-#           eval_chromosome=eval_chromosome_ep_4,
-#           crossover=single_cut_crossover,
-#           max_iterations=1000,
-#           mutation_prob=0.01,
-#           mutation_choosing_prob=0.1,
-#           crossover_prob=0.3,
-#           pressure=2)
-#
-#execute_ga(ga_function=ga_ep,
-#           eval_chromosome=eval_chromosome_ep_4,
-#           crossover=single_cut_crossover,
-#           max_iterations=1000,
-#           mutation_prob=0.01,
-#           mutation_choosing_prob=0.1,
-#           crossover_prob=0.3,
-#           pressure=4)
-#
-#execute_ga(ga_function=ga_ep,
-#           eval_chromosome=eval_chromosome_ep_4,
-#           crossover=single_cut_crossover,
-#           max_iterations=1000,
-#           mutation_prob=0.01,
-#           mutation_choosing_prob=0.1,
-#           crossover_prob=0.3,
-#           pressure=6)
-#
-#execute_ga(ga_function=ga_ep,
-#           eval_chromosome=eval_chromosome_ep_4,
-#           crossover=single_cut_crossover,
-#           max_iterations=1000,
-#           mutation_prob=0.01,
-#           mutation_choosing_prob=0.1,
-#           crossover_prob=0.3,
-#           pressure=8)
-#
-#
-## Double Crossover - ep 4
-#
-#execute_ga(ga_function=ga_ep,
-#           eval_chromosome=eval_chromosome_ep_4,
-#           crossover=double_cut_crossover,
-#           max_iterations=1000,
-#           mutation_prob=0.01,
-#           mutation_choosing_prob=0.1,
-#           crossover_prob=0.3,
-#           pressure=2)
-#
-#execute_ga(ga_function=ga_ep,
-#           eval_chromosome=eval_chromosome_ep_4,
-#           crossover=double_cut_crossover,
-#           max_iterations=1000,
-#           mutation_prob=0.01,
-#           mutation_choosing_prob=0.1,
-#           crossover_prob=0.3,
-#           pressure=4)
-#
-#execute_ga(ga_function=ga_ep,
-#           eval_chromosome=eval_chromosome_ep_4,
-#           crossover=double_cut_crossover,
-#           max_iterations=1000,
-#           mutation_prob=0.01,
-#           mutation_choosing_prob=0.1,
-#           crossover_prob=0.3,
-#           pressure=6)
-#
-#execute_ga(ga_function=ga_ep,
-#           eval_chromosome=eval_chromosome_ep_4,
-#           crossover=double_cut_crossover,
-#           max_iterations=1000,
-#           mutation_prob=0.01,
-#           mutation_choosing_prob=0.1,
-#           crossover_prob=0.3,
-#           pressure=8)
+# Double Crossover - ep 4
+
+execute_ga(ga_function=ga_ep,
+           eval_chromosome=eval_chromosome_ep_4,
+           crossover=double_cut_crossover,
+           max_iterations=1000,
+           mutation_prob=0.01,
+           mutation_choosing_prob=0.1,
+           crossover_prob=0.3,
+           pressure=2)
+
+execute_ga(ga_function=ga_ep,
+           eval_chromosome=eval_chromosome_ep_4,
+           crossover=double_cut_crossover,
+           max_iterations=1000,
+           mutation_prob=0.01,
+           mutation_choosing_prob=0.1,
+           crossover_prob=0.3,
+           pressure=4)
+
+execute_ga(ga_function=ga_ep,
+           eval_chromosome=eval_chromosome_ep_4,
+           crossover=double_cut_crossover,
+           max_iterations=1000,
+           mutation_prob=0.01,
+           mutation_choosing_prob=0.1,
+           crossover_prob=0.3,
+           pressure=6)
+
+execute_ga(ga_function=ga_ep,
+           eval_chromosome=eval_chromosome_ep_4,
+           crossover=double_cut_crossover,
+           max_iterations=1000,
+           mutation_prob=0.01,
+           mutation_choosing_prob=0.1,
+           crossover_prob=0.3,
+           pressure=8)

@@ -8,7 +8,7 @@ from utils.coverage_check import detailed_coverage_check, fast_coverage_check
 
 from path import LOGS_PATH
 
-MAX_WORKERS = 8 #12
+MAX_WORKERS = 12
 
 
 def get_log_info_str(iteration, population, data_matrix):
@@ -211,7 +211,7 @@ def ga_rep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_ch
                          + f"crossover={crossover.__name__}"
             file.write(parameters)
 
-    #start = time.time_ns()
+    start = time.time_ns()
 
     for iteration in range(max_iterations):
         # Evaluate the population
@@ -232,8 +232,8 @@ def ga_rep(pop_size, chromosome_size, max_iterations, mutation_prob, mutation_ch
         # REPAIR PROCEDURE
         population = repairing_procedure(population, data_matrix)
 
-        #end = time.time_ns()
-        #print(f"Iteration {iteration} - Elapsed time: {(end - start) / 1e9} seconds.")
+        end = time.time_ns()
+        print(f"Iteration {iteration} - Elapsed time: {(end - start) / 1e9} seconds.")
 
         if logging:
             with open(LOGS_PATH + experiment_name, "a+") as file:
