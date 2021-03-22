@@ -1,0 +1,281 @@
+EP
+
+{'type_eval': 'eval_chromosome_ep_1', 'global_min_val': 896, 'iteration_global_min_val': 981, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep1616294754.435139.txt'}
+AC_01_cover_experiment_ga_ep1616294754.435139
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_1
+crossover=double_cut_crossover
+['981', 'covered', '100', 'is_min_covered', '1', 'min_val', '896', 'max_val', '949', 'mean_val', '910.98', 'std_val', '9.55']
+
+{'type_eval': 'eval_chromosome_ep_2', 'global_min_val': 891, 'iteration_global_min_val': 997, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep1616295464.737545.txt'}
+AC_01_cover_experiment_ga_ep1616295464.737545
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_2
+crossover=double_cut_crossover
+['997', 'covered', '100', 'is_min_covered', '1', 'min_val', '891', 'max_val', '936', 'mean_val', '909.23', 'std_val', '9.76']
+
+{'type_eval': 'eval_chromosome_ep_4', 'global_min_val': 881, 'iteration_global_min_val': 980, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep1616333482.801356.txt'}
+AC_01_cover_experiment_ga_ep1616333482.801356
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_4
+crossover=double_cut_crossover
+['980', 'covered', '100', 'is_min_covered', '1', 'min_val', '881', 'max_val', '919', 'mean_val', '893.86', 'std_val', '7.37']
+
+
+
+REP
+
+{'type_eval': 'eval_chromosome_rep_1', 'global_min_val': 984, 'iteration_global_min_val': 999, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_rep1616418251.173478.txt'}
+AC_01_cover_experiment_ga_rep1616418251.173478
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_rep_1
+crossover=double_cut_crossover
+['999', 'covered', '100', 'is_min_covered', '1', 'min_val', '984', 'max_val', '1038', 'mean_val', '999.87', 'std_val', '10.84']
+
+
+
+ELITISM
+
+{'type_eval': 'eval_chromosome_ep_1', 'global_min_val': 784, 'iteration_global_min_val': 997, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_elitism_1616412637.024912.txt'}
+AC_01_cover_experiment_ga_ep_elitism_1616412637.024912
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_1
+crossover=double_cut_crossover
+percentage_elitism=0.05
+['997', 'covered', '100', 'is_min_covered', '1', 'min_val', '784', 'max_val', '849', 'mean_val', '797.22', 'std_val', '9.94']
+
+{'type_eval': 'eval_chromosome_ep_2', 'global_min_val': 812, 'iteration_global_min_val': 990, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_elitism_1616414081.110022.txt'}
+AC_01_cover_experiment_ga_ep_elitism_1616414081.110022
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_2
+crossover=double_cut_crossover
+percentage_elitism=0.05
+['990', 'covered', '100', 'is_min_covered', '1', 'min_val', '812', 'max_val', '870', 'mean_val', '823.77', 'std_val', '9.62']
+
+{'type_eval': 'eval_chromosome_ep_4', 'global_min_val': 833, 'iteration_global_min_val': 960, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_elitism_1616415650.232759.txt'}
+AC_01_cover_experiment_ga_ep_elitism_1616415650.232759
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_4
+crossover=double_cut_crossover
+percentage_elitism=0.05
+['960', 'covered', '100', 'is_min_covered', '1', 'min_val', '833', 'max_val', '885', 'mean_val', '849.55', 'std_val', '10.70']
+
+
+
+HYBRIDIZED_HILL_CLIMBING
+
+{'type_eval': 'eval_chromosome_ep_1', 'global_min_val': 765, 'iteration_global_min_val': 999, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_1616393074.394321.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_1616393074.394321
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_1
+crossover=double_cut_crossover
+hybridization_type=hill_climbing
+['999', 'covered', '100', 'is_min_covered', '1', 'min_val', '765', 'max_val', '820', 'mean_val', '777.98', 'std_val', '11.09']
+
+{'type_eval': 'eval_chromosome_ep_2', 'global_min_val': 769, 'iteration_global_min_val': 976, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_1616394430.030149.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_1616394430.030149
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_2
+crossover=double_cut_crossover
+hybridization_type=hill_climbing
+['976', 'covered', '100', 'is_min_covered', '1', 'min_val', '769', 'max_val', '796', 'mean_val', '779.69', 'std_val', '5.48']
+
+{'type_eval': 'eval_chromosome_ep_4', 'global_min_val': 746, 'iteration_global_min_val': 999, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_1616395848.842849.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_1616395848.842849
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_4
+crossover=double_cut_crossover
+hybridization_type=hill_climbing
+['999', 'covered', '100', 'is_min_covered', '1', 'min_val', '746', 'max_val', '794', 'mean_val', '755.45', 'std_val', '8.02']
+
+
+
+HYBRIDIZED_SIMULATED_ANNEALING
+
+{'type_eval': 'eval_chromosome_ep_1', 'global_min_val': 551, 'iteration_global_min_val': 0, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_1616397446.021157.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_1616397446.021157
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_1
+crossover=double_cut_crossover
+hybridization_type=simulated_annealing
+['0', 'covered', '100', 'is_min_covered', '1', 'min_val', '551', 'max_val', '1505', 'mean_val', '1435.09', 'std_val', '110.34']
+
+{'type_eval': 'eval_chromosome_ep_2', 'global_min_val': 64, 'iteration_global_min_val': 882, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_1616398831.666533.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_1616398831.666533
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_2
+crossover=double_cut_crossover
+hybridization_type=simulated_annealing
+['882', 'covered', '100', 'is_min_covered', '1', 'min_val', '64', 'max_val', '129', 'mean_val', '77.54', 'std_val', '13.84']
+
+{'type_eval': 'eval_chromosome_ep_4', 'global_min_val': 764, 'iteration_global_min_val': 958, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_1616400740.992674.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_1616400740.992674
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_4
+crossover=double_cut_crossover
+hybridization_type=simulated_annealing
+['958', 'covered', '100', 'is_min_covered', '1', 'min_val', '764', 'max_val', '811', 'mean_val', '777.60', 'std_val', '8.73']
+
+
+
+HYBRIDIZED_HILL_CLIMBING_ELITISM
+
+{'type_eval': 'eval_chromosome_ep_1', 'global_min_val': 832, 'iteration_global_min_val': 987, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_elitism_1616402821.338669.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_elitism_1616402821.338669
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_1
+crossover=double_cut_crossover
+percentage_elitism=0.05
+hybridization_type=hill_climbing
+['987', 'covered', '100', 'is_min_covered', '1', 'min_val', '832', 'max_val', '881', 'mean_val', '844.12', 'std_val', '10.60']
+
+{'type_eval': 'eval_chromosome_ep_2', 'global_min_val': 801, 'iteration_global_min_val': 998, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_elitism_1616404461.032545.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_elitism_1616404461.032545
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_2
+crossover=double_cut_crossover
+percentage_elitism=0.05
+hybridization_type=hill_climbing
+['998', 'covered', '100', 'is_min_covered', '1', 'min_val', '801', 'max_val', '851', 'mean_val', '814.36', 'std_val', '9.71']
+
+{'type_eval': 'eval_chromosome_ep_4', 'global_min_val': 827, 'iteration_global_min_val': 999, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_elitism_1616406195.262.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_hill_climbing_elitism_1616406195.262
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_4
+crossover=double_cut_crossover
+percentage_elitism=0.05
+hybridization_type=hill_climbing
+['999', 'covered', '100', 'is_min_covered', '1', 'min_val', '827', 'max_val', '895', 'mean_val', '843.40', 'std_val', '13.97']
+
+
+
+HYBRIDIZED_SIMULATED_ANNEALING_ELITISM
+
+{'type_eval': 'eval_chromosome_ep_1', 'global_min_val': 97, 'iteration_global_min_val': 19, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_elitism_1616407916.802027.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_elitism_1616407916.802027
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=8
+eval_chromosome=eval_chromosome_ep_1
+crossover=double_cut_crossover
+percentage_elitism=0.05
+hybridization_type=simulated_annealing
+['19', 'covered', '100', 'is_min_covered', '1', 'min_val', '97', 'max_val', '1239', 'mean_val', '390.08', 'std_val', '201.78']
+
+{'type_eval': 'eval_chromosome_ep_2', 'global_min_val': 473, 'iteration_global_min_val': 998, 'log_name_global_min_val': 'AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_elitism_1616408682.845732.txt'}
+AC_01_cover_experiment_ga_ep_hybridized_simulated_annealing_elitism_1616408682.845732
+pop_size=100
+chromosome_size=2904
+max_iterations=1000
+mutation_choosing_prob=0.1
+mutation_prob=0.01
+crossover_prob=0.3
+pressure=6
+eval_chromosome=eval_chromosome_ep_2
+crossover=double_cut_crossover
+percentage_elitism=0.05
+hybridization_type=simulated_annealing
+['998', 'covered', '100', 'is_min_covered', '1', 'min_val', '473', 'max_val', '548', 'mean_val', '491.91', 'std_val', '15.78']
+
+{'type_eval': 'eval_chromosome_ep_4', 'global_min_val': None, 'iteration_global_min_val': None, 'log_name_global_min_val': None}
+

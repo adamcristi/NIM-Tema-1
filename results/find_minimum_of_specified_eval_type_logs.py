@@ -70,10 +70,57 @@ def find_minimum_of_specified_eval_type_logs(type_eval_chromosome):
             'iteration_global_min_val':generation_global_min_val, 'log_name_global_min_val':log_name_global_min_val}
 
 
+def find_parameters(log_name):
+    with open(os.path.join(LOGS_PATH, log_name[:-4] + "_parameters.txt"), "r") as fd:
+        log_parameters = fd.read(2048)
+
+    return log_parameters
+
+
+def find_min_data(log_name, index_min):
+    with open(os.path.join(LOGS_PATH, log_name), "r") as fd:
+        current_generation = fd.readline().strip()
+
+        index_line = 0
+        while current_generation:
+            if index_line == index_min:
+                data_current_generation = current_generation.split(" ")
+                data_current_generation = list(filter(filter_data, data_current_generation))
+                data_current_generation[0] = data_current_generation[0].replace(':', '')
+                if "=" in data_current_generation[-1]:
+                    data_current_generation[-1] = data_current_generation[-1].replace('=', '')
+
+                min_data = data_current_generation
+
+            index_line += 1
+            current_generation = fd.readline().strip()
+
+    return min_data
+
+
 # Find smallest eval chromosome of population from selected logs
-print(find_minimum_of_specified_eval_type_logs(type_eval_chromosome='eval_chromosome_ep_1'))
-print(find_minimum_of_specified_eval_type_logs(type_eval_chromosome='eval_chromosome_ep_2'))
-print(find_minimum_of_specified_eval_type_logs(type_eval_chromosome='eval_chromosome_ep_4'))
+for val in [1, 2, 4]:
+    data = find_minimum_of_specified_eval_type_logs(type_eval_chromosome='eval_chromosome_ep_{}'.format(str(val)))
+    print(data)
+    parameters = find_parameters(log_name=data["log_name_global_min_val"])
+    min_data = find_min_data(log_name=data["log_name_global_min_val"], index_min=data['iteration_global_min_val'])
+    print(parameters)
+    print(min_data)
+    print()
+
+
+#data = find_minimum_of_specified_eval_type_logs(type_eval_chromosome='eval_chromosome_rep_1')
+#print(data)
+#parameters = find_parameters(log_name=data["log_name_global_min_val"])
+#min_data = find_min_data(log_name=data["log_name_global_min_val"], index_min=data['iteration_global_min_val'])
+#print(parameters)
+#print(min_data)
+
+
+
+#print(find_minimum_of_specified_eval_type_logs(type_eval_chromosome='eval_chromosome_ep_1'))
+#print(find_minimum_of_specified_eval_type_logs(type_eval_chromosome='eval_chromosome_ep_2'))
+#print(find_minimum_of_specified_eval_type_logs(type_eval_chromosome='eval_chromosome_ep_4'))
 
 #print(find_minimum_of_specified_eval_type_logs(type_eval_chromosome='eval_chromosome_rep_1'))
 
